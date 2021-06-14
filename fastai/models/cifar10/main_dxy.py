@@ -176,7 +176,7 @@ def train(train_loader, model, criterion, optimizer, epoch, log):
     data_time.update(time.time() - end)
 
     if args.use_cuda:
-      target = target.cuda(no_blocking=True)
+      target = target.cuda(non_blocking=True)
       #target = target.cuda(async=True) async should be changed to no_blocking in python3.7
       input = input.cuda()
     input_var = torch.autograd.Variable(input)
@@ -221,7 +221,8 @@ def validate(val_loader, model, criterion, log):
 
   for i, (input, target) in enumerate(val_loader):
     if args.use_cuda:
-      target = target.cuda(async=True)
+      #target = target.cuda(async=True)
+      target = target.cuda(non_blocking=True)
       input = input.cuda()
     input_var = torch.autograd.Variable(input, volatile=True)
     target_var = torch.autograd.Variable(target, volatile=True)
