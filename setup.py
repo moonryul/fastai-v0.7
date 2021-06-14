@@ -22,7 +22,10 @@ setup(
       'MarkupSafe', 'matplotlib', 'numpy', 'opencv-python', 'pandas',
       'pandas_summary', 'pickleshare', 'Pillow', 'plotnine',
       'ptyprocess', 'Pygments', 'pyparsing', 'python-dateutil', 'pytz', 'PyYAML', 'pyzmq', 'scipy',
-      'seaborn', 'simplegeneric', 'sklearn_pandas', 'spacy', 'testpath', 'torch<0.4', 'torchtext',
+      'seaborn', 'simplegeneric', 'sklearn_pandas', 'spacy', 'testpath', 
+     #  'torch<0.4', 
+       'torch', 
+      'torchtext',
       'torchvision', 'tornado', 'tqdm', 'traitlets', 'wcwidth', 'webencodings', 'widgetsnbextension'],
     keywords = ['deeplearning', 'pytorch', 'machinelearning'],
     classifiers = ['Development Status :: 3 - Alpha',
@@ -30,3 +33,6 @@ setup(
                    'Programming Language :: Python :: 3.6',
                    'Topic :: Scientific/Engineering :: Artificial Intelligence']
 )
+
+#https://github.com/lukemelas/EfficientNet-PyTorch/issues/243
+#The above setup  causes the "pip3 install --editable ./" command to download "torch-0.1.2.post2.tar.gz" from the pythonhosted packages. This package does not include cuda:
